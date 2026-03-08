@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Proposal ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+background: linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffc3a0,#ffdde1);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+width:90%;
+max-width:400px;
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1{
+color:#ff4d6d;
+margin-bottom:10px;
+}
+
+#text{
+font-size:18px;
+color:#444;
+margin:20px 0;
+}
+
+/* buttons */
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+margin:10px;
+transition:0.3s;
+}
+
+.yes{
+background:#ff4d6d;
+color:white;
+}
+
+.yes:hover{
+transform:scale(1.15);
+}
+
+.no{
+background:#ddd;
+}
+
+/* ring animation */
+
+.ring{
+font-size:80px;
+display:none;
+margin-top:20px;
+animation:ringPop 1s ease;
+}
+
+@keyframes ringPop{
+0%{transform:scale(0);}
+70%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+
+/* love text */
+
+#result{
+display:none;
+font-size:22px;
+color:#ff4d6d;
+margin-top:10px;
+}
+
+/* floating hearts */
+
+.heart{
+position:fixed;
+bottom:-10px;
+font-size:18px;
+color:red;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0); opacity:1;}
+100%{transform:translateY(-100vh); opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Hi My Love ❤️</h1>
+
+<div id="text">
+You make my life beautiful every day...  
+Will you be mine forever?
+</div>
+
+<button class="yes" onclick="accept()">Yes 💖</button>
+<button class="no" onmouseover="run(this)">No 😜</button>
+
+<div class="ring" id="ring">💍</div>
+
+<div id="result">
+She said YES! ❤️🥰
+</div>
+
+</div>
+
+<script>
+
+function accept(){
+document.getElementById("ring").style.display="block";
+document.getElementById("result").style.display="block";
+}
+
+/* No button runs away */
+
+function run(btn){
+btn.style.position="absolute";
+btn.style.left=Math.random()*80+"%";
+btn.style.top=Math.random()*80+"%";
+}
+
+/* floating hearts */
+
+function heart(){
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},6000);
+}
+
+setInterval(heart,300);
+
+</script>
+
+</body>
+</html>
+```
